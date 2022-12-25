@@ -26,7 +26,7 @@ const SideNavbar = () => {
         <MenuOptionGroup
           title="Dashboard"
           sx={{ textTransform: "uppercase" }}
-          type="radio"
+          type={""}
         >
           <MenuItemOption>Menu 1</MenuItemOption>
           <MenuItemOption>Menu 2</MenuItemOption>

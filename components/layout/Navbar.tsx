@@ -9,13 +9,8 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
-  useDisclosure,
 } from "@chakra-ui/react";
-import {
-  ArrowRightOnRectangleIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import NextLink from "next/link";
 
@@ -33,9 +28,7 @@ const Navbar = () => {
         <Flex align="center" gap="10">
           {/* Antler Logo */}
           <NextLink href="/" passHref>
-            <Link>
-              <Image src="/next.svg" alt="NextJs" width={150} height={70} />
-            </Link>
+            <Image src="/next.svg" alt="NextJs" width={150} height={70} />
           </NextLink>
         </Flex>
         <Box>
