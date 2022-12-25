@@ -3,12 +3,14 @@ import {
   Box,
   Container,
   Flex,
+  HStack,
   Icon,
   Link,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
+  Text,
 } from "@chakra-ui/react";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -31,7 +33,10 @@ const Navbar = () => {
             <Image src="/next.svg" alt="NextJs" width={150} height={70} />
           </NextLink>
         </Flex>
-        <Box>
+        <HStack>
+          <Text fontWeight="medium" mr={2}>
+            Hello Admin
+          </Text>
           <Menu placement="bottom-end">
             <MenuButton
               bg="light"
@@ -85,7 +90,7 @@ const Navbar = () => {
               </MenuItem>
             </MenuList>
           </Menu>
-        </Box>
+        </HStack>
       </Container>
     </Box>
   );
