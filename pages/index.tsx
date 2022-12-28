@@ -7,9 +7,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import { WithAuth } from "../components/hoc/WithAuth";
 import Layout from "../components/layout";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -114,4 +115,7 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default WithAuth(Home);
+// export default Home;

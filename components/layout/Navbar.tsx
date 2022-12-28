@@ -15,8 +15,10 @@ import {
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import NextLink from "next/link";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
+  const { logout } = useAuthContext();
   return (
     <Box w="full" bg="white">
       <Container
@@ -83,7 +85,7 @@ const Navbar = () => {
                 textColor="neutral.700"
                 _hover={{ bg: "neutral.100" }}
                 _focus={{ bg: "neutral.100" }}
-                onClick={() => {}}
+                onClick={() => logout()}
               >
                 <Icon as={ArrowRightOnRectangleIcon} w="5" h="5" mr="3" />
                 Logout

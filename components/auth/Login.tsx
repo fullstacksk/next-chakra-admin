@@ -14,12 +14,14 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [isEmailAuthLoading, setIsEmailAuthLoading] = useState(false);
+  const { login } = useAuthContext();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -30,6 +32,16 @@ const Login = () => {
 
     setIsEmailAuthLoading(true);
     // Perform login logic here
+    if (email === "fullstacksk@gmail.com" && password === "fullstacksk") {
+      const accessToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGxzdGFja3NrQGdtYWlsLmNvbSIsIm5hbWUiOiJTaGFpbGVuZHJhIEt1bWFyIiwiaWF0IjoxNTE2MjM5MDIyfQ.fNjo6N5wpTcvUHhI9S47gvzy_eSdNRVMqJxdAmUnRAI";
+      // console.log(accessToken);
+      login(accessToken);
+      setIsEmailAuthLoading(false);
+    } else {
+      setIsEmailAuthLoading(false);
+      setAuthError("Please enter a valid email and password");
+    }
   };
   return (
     <Flex
