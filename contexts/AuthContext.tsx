@@ -67,8 +67,8 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
           email: "fullstacksk@gmail.com",
           displayName: "Shailendra",
         });
-        setIsAuthLoading(false);
-        Router.push("/");
+        setTimeout(() => setIsAuthLoading(false), 2000);
+        Router.replace("/");
       }
     };
     return authorizeUser;

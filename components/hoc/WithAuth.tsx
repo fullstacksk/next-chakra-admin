@@ -2,6 +2,7 @@ import { NextComponentType } from "next";
 import Router from "next/router";
 import React, { ComponentType, useEffect } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
+import SkeltonLoader from "../loader/SkeltonLoader";
 
 export const WithAuth = <T,>(Component: ComponentType<T>) => {
   const AuthProtected = (hocProps: any) => {
@@ -13,12 +14,13 @@ export const WithAuth = <T,>(Component: ComponentType<T>) => {
     });
     // Redirect to login page if user is not logged in
     if (!isAuthLoading && !currentUser) {
-      return <h1>Loading...1...</h1>; // Temporary loading screen until re-routed to /login
+      // Temporary loading screen until re-routed to /login
+      return <SkeltonLoader />;
     }
 
     // Renders a loading screen until auth state is determined, prevents flashing of protected page
     if (isAuthLoading || !currentUser) {
-      return <h1>Loading...2...</h1>;
+      return <SkeltonLoader />;
     }
 
     return <Component {...hocProps} />;
