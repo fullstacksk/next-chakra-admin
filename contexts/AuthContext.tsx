@@ -38,12 +38,14 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   };
 
   const login = (accessToken: string) => {
+    setIsAuthLoading(true);
     localStorage.setItem("accessToken", accessToken);
     setCurrentUserToken(accessToken);
     setCurrentUser({
       email: "fullstacksk@gmail.com",
       displayName: "Shailendra",
     });
+    setTimeout(() => setIsAuthLoading(false), 2000);
     Router.push("/");
   };
 
