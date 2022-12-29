@@ -1,7 +1,9 @@
-import { Center, Flex, Heading, Stack } from "@chakra-ui/react";
 import Head from "next/head";
+import { WithAuth } from "../components/hoc/WithAuth";
+import Layout from "../components/layout";
+import Dashboard from "../dashboard";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -10,18 +12,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Flex
-          width="100wh"
-          height="100vh"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Stack>
-            <Heading>Next-Chakra-Admin</Heading>
-          </Stack>
-        </Flex>
-      </main>
+      <Layout headerText="Dashboard">
+        <Dashboard />
+      </Layout>
     </>
   );
-}
+};
+
+export default WithAuth(Home);
