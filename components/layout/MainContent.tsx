@@ -19,7 +19,7 @@ const MainContent = ({ children, headerText }: ILayoutProps) => {
         overflowY: "auto",
       }}
     >
-      <Stack m={3}>
+      <Stack m={3} as="main">
         <MainContentHeader headerText={headerText} />
         {children}
       </Stack>

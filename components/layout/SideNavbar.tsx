@@ -21,6 +21,7 @@ const SideNavbar = () => {
         position: "sticky",
         overflowY: "auto",
       }}
+      as="aside"
     >
       <Menu>
         <CustomMenuGroup title="MenuGroup1">

@@ -20,7 +20,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 const Navbar = () => {
   const { logout } = useAuthContext();
   return (
-    <Box w="full" bg="white">
+    <Box w="full" bg="white" as="header">
       <Container
         display="flex"
         maxW="full"
@@ -35,7 +35,7 @@ const Navbar = () => {
             <Image src="/next.svg" alt="NextJs" width={150} height={70} />
           </NextLink>
         </Flex>
-        <HStack>
+        <HStack as="nav">
           <Text fontWeight="medium" mr={2}>
             Hello Admin
           </Text>

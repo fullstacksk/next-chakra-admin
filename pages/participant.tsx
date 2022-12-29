@@ -9,11 +9,9 @@ const Participant = () => {
       <Head>
         <title>Participants | Admin</title>
       </Head>
-      <main>
-        <Layout headerText="Participants">
-          <h1>participant...</h1>
-        </Layout>
-      </main>
+      <Layout headerText="Participants">
+        <h1>participant...</h1>
+      </Layout>
     </>
   );
 };
