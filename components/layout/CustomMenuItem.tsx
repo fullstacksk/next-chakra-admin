@@ -1,6 +1,6 @@
 import { MenuItem } from "@chakra-ui/react";
-import { ArrowTrendingDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 interface ICustomMenuItem {
@@ -15,6 +15,7 @@ const CustomMenuItem = ({
   href,
   ...props
 }: ICustomMenuItem) => {
+  const router = useRouter();
   return (
     <MenuItem
       icon={icon}
@@ -22,6 +23,11 @@ const CustomMenuItem = ({
       href={href}
       _hover={{ bg: "gray.600", borderRadius: "md" }}
       _focus={{ textColor: "#1a202c", bg: "gray.400", borderRadius: "md" }}
+      sx={
+        router.pathname === href
+          ? { textColor: "#1a202c", bg: "gray.400", borderRadius: "md" }
+          : {}
+      }
       {...props}
     >
       {children}

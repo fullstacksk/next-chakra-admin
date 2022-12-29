@@ -1,9 +1,10 @@
 import { Menu, MenuDivider, Icon, Stack } from "@chakra-ui/react";
 import {
   Cog8ToothIcon,
-  FolderIcon,
   Squares2X2Icon,
   TicketIcon,
+  UsersIcon,
+  ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/solid";
 import React from "react";
 import CustomMenuGroup from "./CustomMenuGroup";
@@ -24,59 +25,40 @@ const SideNavbar = () => {
       as="aside"
     >
       <Menu>
-        <CustomMenuGroup title="MenuGroup1">
+        <CustomMenuGroup title="Dashboard">
           <CustomMenuItem
             icon={<Icon as={Squares2X2Icon} boxSize="5" />}
             href="/"
           >
             Dashboard
           </CustomMenuItem>
+        </CustomMenuGroup>
+        <CustomMenuGroup title="Main">
           <CustomMenuItem
-            icon={<Icon as={FolderIcon} boxSize="5" />}
-            href="/participant"
+            icon={<Icon as={UsersIcon} boxSize="5" />}
+            href="/users"
           >
-            Participant
+            Users
           </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 3
+          <CustomMenuItem
+            icon={<Icon as={TicketIcon} boxSize="5" />}
+            href="/posts"
+          >
+            Posts
           </CustomMenuItem>
-        </CustomMenuGroup>
-        <CustomMenuGroup title="MenuGroup2">
-          <CustomMenuItem icon={<Icon as={TicketIcon} boxSize="5" />} href="/">
-            Menu 1
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={TicketIcon} boxSize="5" />} href="/">
-            Menu 2
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={TicketIcon} boxSize="5" />} href="/">
-            Menu 3
-          </CustomMenuItem>
-        </CustomMenuGroup>
-        <CustomMenuGroup title="MenuGroup3">
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 1
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 2
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 3
-          </CustomMenuItem>
-        </CustomMenuGroup>
-        <CustomMenuGroup title="MenuGroup4">
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 1
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 2
-          </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 3
+          <CustomMenuItem
+            icon={<Icon as={ChatBubbleOvalLeftIcon} boxSize="5" />}
+            href="/comments"
+          >
+            Comments
           </CustomMenuItem>
         </CustomMenuGroup>
         <MenuDivider />
-        <CustomMenuItem icon={<Icon as={Cog8ToothIcon} boxSize="5" />} href="/">
-          Menu 1
+        <CustomMenuItem
+          icon={<Icon as={Cog8ToothIcon} boxSize="5" />}
+          href="/settings"
+        >
+          Settings
         </CustomMenuItem>
       </Menu>
     </Stack>
