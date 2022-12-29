@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 interface User {
   email: string;
@@ -30,8 +30,8 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [currentUserToken, setCurrentUserToken] = useState<string | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
 
+  const router = useRouter();
   const logout = () => {
-    console.log("logging out");
     localStorage.removeItem("accessToken");
     setCurrentUserToken(null);
     setCurrentUser(null);
@@ -46,20 +46,17 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
       displayName: "Shailendra",
     });
     setTimeout(() => setIsAuthLoading(false), 2000);
-    Router.push("/");
+    router.push("/");
   };
-
   useEffect(() => {
     const authorizeUser = () => {
-      console.log("Running authorizeUser");
       const accessToken = localStorage.getItem("accessToken");
-      console.log(accessToken);
       // No accessToken, clear auth state
       if (!accessToken) {
         setCurrentUserToken(null);
         setCurrentUser(null);
         setIsAuthLoading(false);
-        return;
+        router.push("/login");
       }
       // accessToken Exists, check token validity
       if (accessToken) {
@@ -69,8 +66,9 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
           email: "fullstacksk@gmail.com",
           displayName: "Shailendra",
         });
+        // When authenticated user tries to access login page
+        if (router.pathname === "/login") router.push("/");
         setTimeout(() => setIsAuthLoading(false), 2000);
-        Router.replace("/");
       }
     };
     return authorizeUser;

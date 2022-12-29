@@ -15,13 +15,14 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
+import DashboardLoader from "../loader/DashboardLoader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [isEmailAuthLoading, setIsEmailAuthLoading] = useState(false);
-  const { login } = useAuthContext();
+  const { login, isAuthLoading } = useAuthContext();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -35,7 +36,6 @@ const Login = () => {
     if (email === "fullstacksk@gmail.com" && password === "fullstacksk") {
       const accessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGxzdGFja3NrQGdtYWlsLmNvbSIsIm5hbWUiOiJTaGFpbGVuZHJhIEt1bWFyIiwiaWF0IjoxNTE2MjM5MDIyfQ.fNjo6N5wpTcvUHhI9S47gvzy_eSdNRVMqJxdAmUnRAI";
-      // console.log(accessToken);
       login(accessToken);
       setIsEmailAuthLoading(false);
     } else {
@@ -43,6 +43,11 @@ const Login = () => {
       setAuthError("Please enter a valid email and password");
     }
   };
+  // Renders a loading screen until auth state is determined,
+  // prevents flashing of login page if authenticated user tries to access login page
+  if (isAuthLoading) {
+    return <DashboardLoader />;
+  }
   return (
     <Flex
       width="100wh"

@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const SkeltonLoader = () => {
+const DashboardLoader = () => {
   return (
     <Box>
       {/* Top Navbar  */}
@@ -131,4 +131,4 @@ const SkeltonLoader = () => {
   );
 };
 
-export default SkeltonLoader;
+export default DashboardLoader;

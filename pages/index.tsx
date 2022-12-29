@@ -118,4 +118,3 @@ const Home = () => {
 };
 
 export default WithAuth(Home);
-// export default Home;

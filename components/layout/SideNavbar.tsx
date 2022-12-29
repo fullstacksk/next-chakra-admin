@@ -28,10 +28,13 @@ const SideNavbar = () => {
             icon={<Icon as={Squares2X2Icon} boxSize="5" />}
             href="/"
           >
-            Menu 1
+            Dashboard
           </CustomMenuItem>
-          <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
-            Menu 2
+          <CustomMenuItem
+            icon={<Icon as={FolderIcon} boxSize="5" />}
+            href="/participant"
+          >
+            Participant
           </CustomMenuItem>
           <CustomMenuItem icon={<Icon as={FolderIcon} boxSize="5" />} href="/">
             Menu 3
